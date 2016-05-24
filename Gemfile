@@ -1,6 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-identity'
+gem 'omniauth-google-oauth2'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'administrate', github: 'DisruptiveAngels/administrate', branch: 'rails5'
+gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
+gem 'refile', require: 'refile/rails', github: 'refile/refile', branch: 'master'
+gem 'refile-mini_magick'
+gem 'refile-s3'
+gem 'administrate-field-refile', github: 'acrogenesis/administrate-field-refile', branch: 'master'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
@@ -34,12 +45,14 @@ gem 'jbuilder', '~> 2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails'
 end
 
 group :development do
   gem 'rubocop'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
