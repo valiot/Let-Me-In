@@ -13,7 +13,7 @@ class EventDashboard < Administrate::BaseDashboard
     name: Field::String,
     starts_at: Field::DateTime,
     finishes_at: Field::DateTime,
-    image: Field::Refile,
+    # image: Field::Refile,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -37,7 +37,7 @@ class EventDashboard < Administrate::BaseDashboard
     :name,
     :starts_at,
     :finishes_at,
-    :image,
+    # :image,
     :created_at,
     :updated_at
   ].freeze
@@ -49,7 +49,7 @@ class EventDashboard < Administrate::BaseDashboard
     :name,
     :starts_at,
     :finishes_at,
-    :image
+    # :image
   ].freeze
 
   # Overwrite this method to customize how events are displayed

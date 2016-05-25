@@ -16,16 +16,6 @@ GIT
       selectize-rails (~> 0.6)
 
 GIT
-  remote: git://github.com/acrogenesis/administrate-field-refile.git
-  revision: 22aa7823ac128b7a12d618550487d19c64479e77
-  branch: master
-  specs:
-    administrate-field-refile (0.0.5)
-      administrate (>= 0.2.0, < 0.3.0)
-      rails (>= 4.2, < 5.1)
-      refile (~> 0.6)
-
-GIT
   remote: git://github.com/refile/refile.git
   revision: e844cc96ed5d07d07f6bde96b6429c01cd291b9a
   branch: master
@@ -313,7 +303,6 @@ PLATFORMS
 
 DEPENDENCIES
   administrate!
-  administrate-field-refile!
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
