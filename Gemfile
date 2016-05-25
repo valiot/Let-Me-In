@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 gem 'omniauth-github'
 gem 'omniauth-identity'
 gem 'omniauth-google-oauth2'

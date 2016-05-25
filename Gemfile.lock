@@ -172,6 +172,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
+    oauth (0.5.1)
     oauth2 (1.1.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0, < 1.5.2)
@@ -181,8 +182,6 @@ GEM
     omniauth (1.3.1)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
-    omniauth-facebook (3.0.0)
-      omniauth-oauth2 (~> 1.2)
     omniauth-github (1.1.2)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.1)
@@ -193,6 +192,11 @@ GEM
       omniauth-oauth2 (>= 1.3.1)
     omniauth-identity (1.1.1)
       bcrypt-ruby (~> 3.0)
+      omniauth (~> 1.0)
+    omniauth-linkedin (0.2.0)
+      omniauth-oauth (~> 1.0)
+    omniauth-oauth (1.1.0)
+      oauth
       omniauth (~> 1.0)
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
@@ -312,10 +316,10 @@ DEPENDENCIES
   dotenv-rails
   jquery-rails
   listen (~> 3.0.5)
-  omniauth-facebook
   omniauth-github
   omniauth-google-oauth2
   omniauth-identity
+  omniauth-linkedin
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0.rc1)
