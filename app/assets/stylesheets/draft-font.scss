@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'draft-icons';
+  src: url(font_path('draft-icons.eot?8o4d4q'));
+  src: url(font_path('draft-icons.eot?8o4d4q#iefix')) format('embedded-opentype'),
+       url(font_path('draft-icons.ttf?8o4d4q')) format('truetype'),
+       url(font_path('draft-icons.woff?8o4d4q')) format('woff'),
+       url(font_path('draft-icons.svg?8o4d4q#draft-icons')) format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i {
+  font-family: 'draft-icons' !important; // use !important to prevent issues with browser extensions that change fonts
+  // Better Font Rendering ===========
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+}
+
+.draft-check::before {
+  content: '\f00c';
+}
+
+.draft-close::before {
+  content: '\f00d';
+}
+
+.draft-remove::before {
+  content: '\f00d';
+}
+
+.draft-times::before {
+  content: '\f00d';
+}
+
+.draft-camera::before {
+  content: '\f030';
+}

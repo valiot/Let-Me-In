@@ -13,8 +13,12 @@ gem 'refile-mini_magick'
 gem 'refile-s3'
 gem 'administrate-field-refile', github: 'acrogenesis/administrate-field-refile', branch: 'master'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.2'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '~> 5.0.0.rc1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -33,11 +37,11 @@ gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5.x'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -50,6 +54,7 @@ end
 
 group :development do
   gem 'rubocop'
+  gem 'scss_lint', require: false
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'better_errors'
   gem 'binding_of_caller'

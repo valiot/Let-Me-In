@@ -1,0 +1,75 @@
+$shadow1: rgba(255, 255, 255, .4);
+$shadow2: rgba(0, 0, 0, .33);
+$disruptive-blue: #469cb6;
+
+.front-page {
+  text-align: center;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.card-form {
+  box-shadow: 0 0 0 5px $shadow1, 0 4px 20px $shadow2;
+  margin: 25px auto;
+  max-width: 400px;
+}
+
+.title {
+  color: $disruptive-blue;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.avatar {
+  padding: 25px 25px 0;
+}
+
+.uploadable-image:hover {
+  cursor: pointer;
+  opacity: .7;
+
+  + .plus {
+    display: block;
+  }
+}
+
+.plus {
+  color: rgba(255, 255, 255, .85);
+  display: none;
+  font-family: Helvetica;
+  font-size: 96px;
+  font-weight: 900;
+  left: 43%;
+  position: absolute;
+  top: 20%;
+}
+
+.hidden {
+  display: none;
+}
+
+.invitation-btn {
+  width: 100%;
+}
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(50%);
+}
+
+.btn-login {
+  margin: 5px;
+}
+
+@media (max-width:767px) {
+  .bd-navbar .nav-item {
+    float: none;
+  }
+
+  .bd-navbar .nav-item + .nav-item {
+    margin-left: 0;
+  }
+}
