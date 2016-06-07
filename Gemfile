@@ -1,10 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-gem 'omniauth-linkedin'
-gem 'omniauth-github'
-gem 'omniauth-identity'
-gem 'omniauth-google-oauth2'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'administrate', github: 'DisruptiveAngels/administrate', branch: 'rails5'
 gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
