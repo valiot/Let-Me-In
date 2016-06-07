@@ -1,6 +1,6 @@
 <% content_for :title, 'Registro' %>
 <div class="card card-block card-form">
-  <%= form_tag "/auth/identity/register" do %>
+  <%= form_tag event_register_path do %>
     <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
     <div class="form-group row">
       <%= label_tag :name, 'Nombre', class: 'col-xs-2 form-control-label' %>
@@ -12,12 +12,6 @@
       <%= label_tag :email, 'Email', class: 'col-xs-2 form-control-label'  %>
       <div class="col-xs-9 col-xs-offset-1">
         <%= email_field_tag :email, nil, class:'form-control', placeholder:'usuario@email.com' %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <%= label_tag :password, 'Contraseña', class: 'col-xs-2 form-control-label'  %>
-      <div class="col-xs-9 col-xs-offset-1">
-        <%= password_field_tag :password, nil, class:'form-control', placeholder:'Mínimo 6 cararacteres' %>
       </div>
     </div>
     <div class="form-group row btn-space">

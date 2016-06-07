@@ -136,7 +136,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     json_pure (1.8.3)
-    jwt (1.5.1)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -154,9 +153,6 @@ GEM
     minitest (5.9.0)
     momentjs-rails (2.11.1)
       railties (>= 3.1)
-    multi_json (1.12.1)
-    multi_xml (0.5.5)
-    multipart-post (2.0.0)
     mustermann (0.4.0)
       tool (~> 0.2)
     neat (1.7.4)
@@ -167,35 +163,6 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     normalize-rails (3.0.3)
-    oauth (0.5.1)
-    oauth2 (1.1.0)
-      faraday (>= 0.8, < 0.10)
-      jwt (~> 1.0, < 1.5.2)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (>= 1.2, < 3)
-    omniauth (1.3.1)
-      hashie (>= 1.2, < 4)
-      rack (>= 1.0, < 3)
-    omniauth-github (1.1.2)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.1)
-    omniauth-google-oauth2 (0.4.0)
-      jwt (~> 1.5.0)
-      multi_json (~> 1.3)
-      omniauth (>= 1.1.1)
-      omniauth-oauth2 (>= 1.3.1)
-    omniauth-identity (1.1.1)
-      bcrypt-ruby (~> 3.0)
-      omniauth (~> 1.0)
-    omniauth-linkedin (0.2.0)
-      omniauth-oauth (~> 1.0)
-    omniauth-oauth (1.1.0)
-      oauth
-      omniauth (~> 1.0)
-    omniauth-oauth2 (1.4.0)
-      oauth2 (~> 1.0)
-      omniauth (~> 1.2)
     parser (2.3.1.0)
       ast (~> 2.2)
     pg (0.18.4)
@@ -311,10 +278,6 @@ DEPENDENCIES
   dotenv-rails
   jquery-rails
   listen (~> 3.0.5)
-  omniauth-github
-  omniauth-google-oauth2
-  omniauth-identity
-  omniauth-linkedin
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0.rc1)
@@ -336,4 +299,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.3
+   1.12.4

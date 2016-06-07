@@ -1,0 +1,30 @@
+<% content_for :title, "Inicia sesión" %>
+<h2 class="title">¡Bienvenido a <%= current_event.name %>!</h2>
+<div class="card card-block card-form">
+  <%= form_tag event_register_path do %>
+  <div class="form-group row">
+    <%= label_tag :name, 'Nombre', class: 'col-xs-2 form-control-label' %>
+    <div class="col-xs-9 col-xs-offset-1">
+      <%= text_field_tag :name, nil, class:'form-control', placeholder:'Juan Pedro de la Mar' %>
+    </div>
+  </div>
+    <div class="form-group row">
+      <%= label_tag :email, 'Email', class: 'col-xs-2 form-control-label' %>
+      <div class="col-xs-9 col-xs-offset-1">
+        <%= email_field_tag :email, nil, class:'form-control', placeholder:'usuario@email.com' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="actions"><%= submit_tag "Registrar", class:"btn btn-success btn-block" %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function() {
+    setTimeout( function(){
+      $('.alert').alert('close');
+    }, 4000);
+  });
+</script>

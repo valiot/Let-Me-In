@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      redirect_to event_checkin_path(current_user.events.last), notice: 'Gracias por registrate.'
+      redirect_to event_checkin_path(current_user.events.last), notice: 'Gracias por registrarte.'
       session[:user_id] = nil
     else
       render :edit, notice: 'No se pudieron actualizar tus datos'

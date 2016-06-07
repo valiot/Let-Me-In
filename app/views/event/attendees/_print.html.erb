@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', function() {
   '</ObjectInfo>' +
   '</DieCutLabel>';
   var label = dymo.label.framework.openLabelXml(labelXml);
-  label.setObjectText("Name", '<%= "#{@user.name} (#{@user.event_count(@event)})" %>');
+  label.setObjectText("Name", '<%= "#{current_user.name} (#{current_user.event_count(current_event)})" %>');
   var printers = dymo.label.framework.getPrinters();
   if (printers.length === 0)
       throw "No DYMO printers are installed. Install DYMO printers.";
