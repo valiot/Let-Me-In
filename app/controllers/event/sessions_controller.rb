@@ -10,15 +10,11 @@ class Event::SessionsController < ApplicationController
   end
 
   def new
-    if Attendee.create(user: user, event: current_event)
-      flash[:notice] = 'Tu registro ha quedado registrado.'
-    else
-      render event_register_path
-    end
-    redirect_to event_checkin_path if current_user
+    # session[:user] = nil
   end
 
   def destroy
+    session[:user] = nil
     redirect_to event_main_path
   end
 
