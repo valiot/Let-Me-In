@@ -161,7 +161,7 @@ $(document).on('turbolinks:load', function() {
   }
 
   $('.edit_user').submit(function (e){
-    label.setObjectText("Name", $('#user_name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() + '<%= " (#{@user.event_count(@event)})" %>');
+    label.setObjectText("Name", $('#user_name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() + '<%= " (1)" %>');
     label.print(printerName);
   });
 });
