@@ -16,6 +16,16 @@ class Event < ApplicationRecord
     end
   end
 
+  def print_attendees
+    old_logger = ActiveRecord::Base.logger
+    ActiveRecord::Base.logger = nil
+    attendees.each do |attendee|
+      next if attendee.user.nil?
+      puts "#{attendee.user.name},#{attendee.user.email}"
+    end
+    ActiveRecord::Base.logger = old_logger
+  end
+
   private
 
   def generate_slug
