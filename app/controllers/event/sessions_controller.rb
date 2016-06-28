@@ -3,7 +3,6 @@ class Event::SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     @user = User.create(user_params) if @user.nil?
     if Attendee.create(user: @user, event: current_event)
-      flash[:notice] = 'Tu registro ha quedado guardado.'
       respond_to do |format|
         format.js
       end
