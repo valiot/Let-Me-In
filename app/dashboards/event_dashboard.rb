@@ -13,6 +13,7 @@ class EventDashboard < Administrate::BaseDashboard
     name: Field::String,
     starts_at: Field::DateTime,
     finishes_at: Field::DateTime,
+    label_xml: Field::Text,
     # image: Field::Refile,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -49,6 +50,7 @@ class EventDashboard < Administrate::BaseDashboard
     :name,
     :starts_at,
     :finishes_at,
+    :label_xml,
     # :image
   ].freeze
 
