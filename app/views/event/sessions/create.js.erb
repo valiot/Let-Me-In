@@ -1,0 +1,2 @@
+label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() + '(' + '<%= @user.event_count(current_event) %>' + ')' );
+label.print(printerName);

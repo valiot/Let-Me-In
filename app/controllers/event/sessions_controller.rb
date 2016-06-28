@@ -1,16 +1,18 @@
 class Event::SessionsController < ApplicationController
   def create
-    user = User.find_or_create_by(user_params)
-    if Attendee.create(user: user, event: current_event)
+    @user = User.find_by(email: params[:email])
+    @user = User.create(user_params) if @user.nil?
+    if Attendee.create(user: @user, event: current_event)
       flash[:notice] = 'Tu registro ha quedado guardado.'
+      respond_to do |format|
+        format.js
+      end
     else
       render event_register_path
     end
-    redirect_to event_register_path
   end
 
   def new
-    # session[:user] = nil
   end
 
   def destroy

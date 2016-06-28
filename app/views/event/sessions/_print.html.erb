@@ -1,5 +1,4 @@
 <script type="text/javascript">
-$(document).on('turbolinks:load', function() {
   var labelXml = '<?xml version="1.0" encoding="utf-8"?>' +
 '<DieCutLabel Version="8.0" Units="twips">' +
 '<PaperOrientation>Landscape</PaperOrientation>' +
@@ -10,7 +9,7 @@ $(document).on('turbolinks:load', function() {
 '</DrawCommands>' +
 '<ObjectInfo>' +
 '<TextObject>' +
-'<Name>TEXTO</Name>' +
+'<Name>Name</Name>' +
 '<ForeColor Alpha="255" Red="0" Green="0" Blue="0"/>' +
 '<BackColor Alpha="0" Red="255" Green="255" Blue="255"/>' +
 '<LinkedObjectName></LinkedObjectName>' +
@@ -88,9 +87,4 @@ $(document).on('turbolinks:load', function() {
       }
   }
 
-  $('#checkin_form').submit(function (e){
-    label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() + '<%= " (1)" %>');
-    label.print(printerName);
-  });
-});
 </script>
