@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607170524) do
+ActiveRecord::Schema.define(version: 20160628214040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20160607170524) do
   create_table "attendees", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_attendees_on_event_id", using: :btree
     t.index ["user_id"], name: "index_attendees_on_user_id", using: :btree
   end
@@ -30,11 +30,12 @@ ActiveRecord::Schema.define(version: 20160607170524) do
     t.string   "location"
     t.string   "image_id"
     t.string   "image_filename"
-    t.datetime "starts_at"
-    t.datetime "finishes_at"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "starts_at",      precision: 6
+    t.datetime "finishes_at",    precision: 6
+    t.datetime "created_at",     precision: 6, null: false
+    t.datetime "updated_at",     precision: 6, null: false
     t.string   "slug"
+    t.text     "label_xml"
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
 
@@ -43,10 +44,10 @@ ActiveRecord::Schema.define(version: 20160607170524) do
     t.string   "name"
     t.string   "email"
     t.string   "image_url"
-    t.integer  "role",       default: 0
-    t.integer  "shirt_size", default: 1
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "role",                     default: 0
+    t.integer  "shirt_size",               default: 1
+    t.datetime "created_at", precision: 6,             null: false
+    t.datetime "updated_at", precision: 6,             null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
