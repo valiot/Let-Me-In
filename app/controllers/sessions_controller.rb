@@ -1,10 +1,8 @@
 class SessionsController < ApplicationController
   def create
-    event = Event.find((env['omniauth.params'] || session['omniauth.params'])['event'].to_i)
-    user = User.from_omniauth(env['omniauth.auth'], event)
+    user = User.find_or_create_by(params[:email])
     session[:user_id] = user.id
-
-    redirect_to edit_user_path(event)
+    redirect_to edit_user_path
   end
 
   def destroy
