@@ -7,6 +7,7 @@ gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 gem 'refile', require: 'refile/rails', github: 'refile/refile', branch: 'master'
 gem 'refile-mini_magick'
 gem 'refile-s3'
+gem 'bourbon'
 # gem 'administrate-field-refile', github: 'acrogenesis/administrate-field-refile', branch: 'master'
 
 source 'https://rails-assets.org' do
