@@ -17,12 +17,6 @@
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :shirt_size, 'Playera', class: 'col-xs-2 form-control-label' %>
-      <div class="col-xs-10">
-        <%= f.select(:shirt_size, User.shirt_sizes.keys.map {|shirt| [shirt.upcase, shirt]}, {}, class: 'c-select form-control') %>
-      </div>
-    </div>
-    <div class="form-group row">
       <div class="col-xs-10 col-xs-offset-1">
         <%= f.submit 'Continuar', class:"btn btn-success btn-block" %>
       </div>

@@ -14,7 +14,6 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     image_url: Field::String,
     role: EnumField,
-    shirt_size: EnumField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -38,7 +37,6 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :image_url,
     :role,
-    :shirt_size,
     :created_at,
     :updated_at
   ].freeze
@@ -51,7 +49,6 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :image_url,
     :role,
-    :shirt_size
   ].freeze
 
   # Overwrite this method to customize how users are displayed

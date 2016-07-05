@@ -8,7 +8,6 @@ one:
   last_name: MyString
   email: MyString
   role: 1
-  shirt_size: 1
 
 two:
   provider: MyString
@@ -18,4 +17,3 @@ two:
   last_name: MyString
   email: MyString
   role: 1
-  shirt_size: 1
