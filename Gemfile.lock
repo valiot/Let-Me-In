@@ -16,6 +16,16 @@ GIT
       selectize-rails (~> 0.6)
 
 GIT
+  remote: git://github.com/acrogenesis/administrate-field-refile.git
+  revision: 22aa7823ac128b7a12d618550487d19c64479e77
+  branch: master
+  specs:
+    administrate-field-refile (0.0.5)
+      administrate (>= 0.2.0, < 0.3.0)
+      rails (>= 4.2, < 5.1)
+      refile (~> 0.6)
+
+GIT
   remote: git://github.com/refile/refile.git
   revision: d7a42dcd7cf631ba94b01231f535bda061f6af92
   branch: master
@@ -122,7 +132,7 @@ GEM
       railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
-    ffi (1.9.12)
+    ffi (1.9.13)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     http-cookie (1.0.2)
@@ -213,7 +223,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rubocop (0.41.1)
+    rubocop (0.41.2)
       parser (>= 2.3.1.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
@@ -266,6 +276,7 @@ PLATFORMS
 
 DEPENDENCIES
   administrate!
+  administrate-field-refile!
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
