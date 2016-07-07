@@ -2,7 +2,12 @@ class Event::SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     @user = User.create(user_params) if @user.nil?
-    if Attendee.create(user: @user, event: current_event)
+    if Attendee.find_by('created_at >= ? AND created_at <= ?', Time.zone.today.beginning_of_day, Time.zone.today.end_of_day)
+      flash[:alert] = "Correo ya registrado para este evento, trata con otro."
+      respond_to do |format|
+        format.html{ redirect_to event_register_path }
+      end
+    elsif Attendee.create(user: @user, event: current_event)
       respond_to do |format|
         format.js
       end
