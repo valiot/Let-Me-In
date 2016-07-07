@@ -13,7 +13,7 @@ class EventDashboard < Administrate::BaseDashboard
     name: Field::String,
     starts_at: Field::DateTime,
     finishes_at: Field::DateTime,
-    label_xml: Field::Text,
+    label_xml: FileField,
     # image: Field::Refile,
     created_at: Field::DateTime,
     updated_at: Field::DateTime

@@ -15,5 +15,15 @@ module Admin
 
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information
+
+    def create
+      params[:event][:label_xml] = File.read(params[:event][:label_xml].tempfile)
+      super
+    end
+
+    def update
+      params[:event][:label_xml] = File.read(params[:event][:label_xml].tempfile)
+      super
+    end
   end
 end
