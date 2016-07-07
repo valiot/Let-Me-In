@@ -1,6 +1,7 @@
 <% content_for :title, "Inicia sesión" %>
 <h2 class="title">¡Bienvenido a <%= current_event.name %>!</h2>
 <div class="card card-block card-form">
+  <%= image_tag attachment_url(current_event, :image, :fill, 300, 300) %>
   <%= form_tag event_register_path, id: 'checkin_form', remote: true do %>
   <div class="form-group row">
     <%= label_tag :name, 'Nombre', class: 'col-xs-2 form-control-label' %>
