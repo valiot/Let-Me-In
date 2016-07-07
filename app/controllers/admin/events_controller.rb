@@ -17,12 +17,12 @@ module Admin
     # for more information
 
     def create
-      params[:event][:label_xml] = File.read(params[:event][:label_xml].tempfile)
+      params[:event][:label_xml] = File.read(params.dig(:event, :label_xml).tempfile) if params.dig(:event, :label_xml)
       super
     end
 
     def update
-      params[:event][:label_xml] = File.read(params[:event][:label_xml].tempfile)
+      params[:event][:label_xml] = File.read(params.dig(:event, :label_xml).tempfile) if params.dig(:event, :label_xml)
       super
     end
   end
