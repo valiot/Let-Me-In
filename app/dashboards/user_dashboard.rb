@@ -13,7 +13,7 @@ class UserDashboard < Administrate::BaseDashboard
     name: Field::String,
     email: Field::String,
     image_url: Field::String,
-    role: EnumField,
+    role: Field::Enum,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
