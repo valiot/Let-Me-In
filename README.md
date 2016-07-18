@@ -1,24 +1,32 @@
-# README
+# Let Me In
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO: Write a project description
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+TODO: Describe the installation process
 
-* System dependencies
+## Usage
 
-* Configuration
+TODO: Write usage instructions
 
-* Database creation
+## Contributing
 
-* Database initialization
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
+6. ???
+7. Profit!
+## History
 
-* How to run the test suite
+TODO: Write history
 
-* Services (job queues, cache servers, search engines, etc.)
+## Credits
 
-* Deployment instructions
+TODO: Write credits
 
-* ...
+## License
+
+TODO: Write license
