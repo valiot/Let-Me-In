@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
-gem 'administrate', github: 'DisruptiveAngels/administrate', branch: 'rails5'
+gem 'administrate', github: 'DisruptiveAngels/administrate', branch: 'merge-master-rails5'
 gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 gem 'refile', require: 'refile/rails', github: 'refile/refile', branch: 'master'
 gem 'refile-mini_magick'
