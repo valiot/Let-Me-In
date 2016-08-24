@@ -14,6 +14,7 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     image_url: Field::String,
     role: Field::Enum,
+    company: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -26,6 +27,7 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :name,
     :email,
+    :company,
     :id
   ].freeze
 
@@ -37,6 +39,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :image_url,
     :role,
+    :company,
     :created_at,
     :updated_at
   ].freeze
@@ -49,6 +52,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :image_url,
     :role,
+    :company
   ].freeze
 
   # Overwrite this method to customize how users are displayed
