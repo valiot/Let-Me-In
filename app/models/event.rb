@@ -19,7 +19,7 @@ class Event < ApplicationRecord
   def print_attendees(date)
     old_logger = ActiveRecord::Base.logger
     ActiveRecord::Base.logger = nil
-    attendees.where('created_at >= ? AND created_at <= ?', Time.zone.beginning_of_day, Time.zone.end_of_day).each do |attendee|
+    attendees.where('created_at >= ? AND created_at <= ?', date.beginning_of_day, date.end_of_day).each do |attendee|
       next if attendee.user.nil?
       puts "#{attendee.user.name},#{attendee.user.email}"
     end
