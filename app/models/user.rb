@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :login
 
+  has_many :dynamic_fields
   has_many :attendees
   has_many :events, through: :attendees
   validates_uniqueness_of :email

@@ -1,0 +1,12 @@
+<% unless @event.custom_fields.empty? %>
+  <%= hidden_field_tag 'dynamic_field[event_id]', @event.id %>
+  <% @event.custom_fields.uniq.each do |field| %>
+    <%= hidden_field_tag 'dynamic_field[custom_field_id]', field.id %>
+    <div class="form-group row">
+      <%= label_tag field.name.to_sym, field.name.titleize, class: 'col-xs-2 form-control-label', for: 'dynamic_field_value' %>
+      <div class="col-xs-9 col-xs-offset-1">
+        <%= self.send("#{field.type}_tag", 'dynamic_field[value]', nil, class:'form-control') %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

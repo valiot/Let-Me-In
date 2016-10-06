@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :attendees
     resources :events
     resources :users
+    resources :custom_fields
 
     root to: 'events#index'
   end

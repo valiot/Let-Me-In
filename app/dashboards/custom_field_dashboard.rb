@@ -1,6 +1,6 @@
 require 'administrate/base_dashboard'
 
-class EventDashboard < Administrate::BaseDashboard
+class CustomFieldDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,14 +8,10 @@ class EventDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    attendees: Field::HasMany,
-    custom_fields: Field::HasMany,
     id: Field::Number,
+    type: Field::Enum,
     name: Field::String,
-    starts_at: Field::DateTime,
-    finishes_at: Field::DateTime,
-    label_xml: FileField,
-    image: Field::Refile,
+    options: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -27,20 +23,17 @@ class EventDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :name,
-    :attendees,
+    :type,
     :id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :attendees,
-    :custom_fields,
     :id,
+    :type,
     :name,
-    :starts_at,
-    :finishes_at,
-    :image,
+    :options,
     :created_at,
     :updated_at
   ].freeze
@@ -49,18 +42,15 @@ class EventDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :type,
     :name,
-    :custom_fields,
-    :starts_at,
-    :finishes_at,
-    :label_xml,
-    :image
+    :options
   ].freeze
 
-  # Overwrite this method to customize how events are displayed
+  # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(event)
-    event.name
+  def display_resource(custom_field)
+    custom_field.name
   end
 end

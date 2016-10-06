@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   before_create :generate_slug
   has_many :attendees
+  has_many :dynamic_fields
+  has_many :custom_fields, through: :dynamic_fields
 
   attachment :image
 
