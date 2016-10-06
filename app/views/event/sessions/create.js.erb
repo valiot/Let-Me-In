@@ -1,9 +1,9 @@
 label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() );
 // Venture Beers specific
 if ($('#dynamic_field_value_attributes_1_value').val() == "") {
-  label.setObjectText("Extra", $('#dynamic_field_value_attributes_2_value').val());
+  label.setObjectText("Extra", $('#dynamic_field_value_attributes_2_value').val().toUpperCase());
 }else {
-  label.setObjectText("Extra", $('#dynamic_field_value_attributes_1_value').val());
+  label.setObjectText("Extra", $('#dynamic_field_value_attributes_1_value').val().toUpperCase();
 }
 
 //label.setObjectText("Count", '(' + '<%= @user.event_count(current_event) %>' + ')');
