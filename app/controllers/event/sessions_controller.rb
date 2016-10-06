@@ -3,9 +3,11 @@ class Event::SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     @user = User.create(user_params) if @user.nil?
     @attendee = Attendee.new(user: @user, event: current_event)
-    @dynamic_field = DynamicField.new(dynamic_field_params)
-    @dynamic_field.user_id = @user.id
-    @dynamic_field.save
+    # TODO Fix this hack
+    dynamic_field_params['value_attributes'].each do |k, v|
+      @dynamic_field = DynamicField.create(event_id: dynamic_field_params[:event_id], custom_field_id: k,
+                                        value: v['value'], user_id: @user.id)
+    end
     if @attendee.save
       respond_to do |format|
         format.js
@@ -19,7 +21,6 @@ class Event::SessionsController < ApplicationController
 
   def new
     @event = Event.find_by(slug: params[:event])
-    @dynamic_field = DynamicField.new
   end
 
   def destroy
@@ -34,6 +35,6 @@ class Event::SessionsController < ApplicationController
   end
 
   def dynamic_field_params
-    params.require(:dynamic_field).permit(:value, :custom_field_id, :event_id)
+    params.require(:dynamic_field).permit(:event_id, value_attributes: [:value])
   end
 end
