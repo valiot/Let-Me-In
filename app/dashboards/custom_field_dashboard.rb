@@ -11,6 +11,7 @@ class CustomFieldDashboard < Administrate::BaseDashboard
     id: Field::Number,
     type: Field::Enum,
     name: Field::String,
+    placeholder: Field::String,
     options: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -33,6 +34,7 @@ class CustomFieldDashboard < Administrate::BaseDashboard
     :id,
     :type,
     :name,
+    :placeholder,
     :options,
     :created_at,
     :updated_at
@@ -44,6 +46,7 @@ class CustomFieldDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :type,
     :name,
+    :placeholder,
     :options
   ].freeze
 

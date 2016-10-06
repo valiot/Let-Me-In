@@ -7,7 +7,7 @@
         <% if field.type == 'select_field' %>
           <%= select_tag "dynamic_field[value_attributes][#{field.id}][value]", options_for_select(field.options.titleize.split(',')), class: 'form-control' %>
         <% else %>
-          <%= self.send("#{field.type}_tag", "dynamic_field[value_attributes][#{field.id}][value]", nil, class:'form-control') %>
+          <%= self.send("#{field.type}_tag", "dynamic_field[value_attributes][#{field.id}][value]", nil, class:'form-control inputs', placeholder: field.placeholder.titleize) %>
         <% end %>
       </div>
     </div>
