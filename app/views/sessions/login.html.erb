@@ -3,12 +3,12 @@
   <%= form_tag create_user_path do %>
     <div class="form-group row">
       <%= label_tag :email, 'Email', class: 'col-xs-2 form-control-label' %>
-      <div class="col-xs-9 col-xs-offset-1">
+      <div class="col-xs-9 offset-xs-1">
         <%= email_field_tag :email, nil, class:'form-control', placeholder:'usuario@email.com' %>
       </div>
     </div>
     <div class="form-group row">
-      <div class="col-xs-10 col-xs-offset-1">
+      <div class="col-xs-10 offset-xs-1">
         <div class="actions"><%= submit_tag "Login", class:"btn btn-success btn-block" %></div>
       </div>
     </div>

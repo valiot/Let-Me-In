@@ -6,7 +6,7 @@ class Event::SessionsController < ApplicationController
     # TODO Fix this hack
     dynamic_field_params['value_attributes'].each do |k, v|
       @dynamic_field = DynamicField.create(event_id: dynamic_field_params[:event_id], custom_field_id: k,
-                                        value: v['value'], user_id: @user.id)
+                                           value: v['value'], user_id: @user.id)
     end
     if @attendee.save
       respond_to do |format|
