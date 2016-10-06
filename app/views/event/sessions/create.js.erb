@@ -1,5 +1,12 @@
 label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() );
-label.setObjectText("Count", '(' + '<%= @user.event_count(current_event) %>' + ')');
+// Venture Beers specific
+if ($('#dynamic_field_value_attributes_1_value').val() == "") {
+  label.setObjectText("Extra", $('#dynamic_field_value_attributes_2_value').val());
+}else {
+  label.setObjectText("Extra", $('#dynamic_field_value_attributes_1_value').val());
+}
+
+//label.setObjectText("Count", '(' + '<%= @user.event_count(current_event) %>' + ')');
 label.print(printerName);
 $('.inputs').val("");
 $('#name').focus();
