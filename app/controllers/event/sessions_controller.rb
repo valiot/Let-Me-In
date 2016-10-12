@@ -4,9 +4,11 @@ class Event::SessionsController < ApplicationController
     @user = User.create(user_params) if @user.nil?
     @attendee = Attendee.new(user: @user, event: current_event)
     # TODO Fix this hack
-    dynamic_field_params['value_attributes'].each do |k, v|
-      @dynamic_field = DynamicField.create(event_id: dynamic_field_params[:event_id], custom_field_id: k,
-                                           value: v['value'], user_id: @user.id)
+    unless dynamic_field_params.blank?
+      dynamic_field_params['value_attributes'].each do |k, v|
+        @dynamic_field = DynamicField.create(event_id: dynamic_field_params[:event_id], custom_field_id: k,
+                                             value: v['value'], user_id: @user.id)
+      end
     end
     if @attendee.save
       respond_to do |format|
@@ -35,6 +37,6 @@ class Event::SessionsController < ApplicationController
   end
 
   def dynamic_field_params
-    params.require(:dynamic_field).permit(:event_id, value_attributes: [:value])
+    # params.require(:dynamic_field).permit(:event_id, value_attributes: [:value])
   end
 end
