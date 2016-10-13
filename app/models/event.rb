@@ -24,13 +24,12 @@ class Event < ApplicationRecord
   end
 
   def print_attendees(date)
-    old_logger = ActiveRecord::Base.logger
-    ActiveRecord::Base.logger = nil
+    csv = ''
     attendees.where('created_at >= ? AND created_at <= ?', date.beginning_of_day, date.end_of_day).each do |attendee|
       next if attendee.user.nil?
-      puts "#{attendee.user.name},#{attendee.user.email}"
+      csv << "#{attendee.user.name},#{attendee.user.email}"
     end
-    ActiveRecord::Base.logger = old_logger
+    csv
   end
 
   private
