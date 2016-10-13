@@ -16,6 +16,14 @@ module Admin
     # See https://administrate-docs.herokuapp.com/customizing_controller_actions
     # for more information
 
+    def download
+      date = params[:event][:event_downloaded_at].split(' ')[0].split('-').map(&:to_i)
+      date = Date.new(date[0], date[1], date[2])
+      event = Event.find(params[:event][:id].to_i)
+      csv = event.print_attendees(date)
+      send_data csv, filename: "#{event.slug}.csv", type: 'text/csv'
+    end
+
     def create
       params[:event][:label_xml] = File.read(params.dig(:event, :label_xml).tempfile) if params.dig(:event, :label_xml)
       super

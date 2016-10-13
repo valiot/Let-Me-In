@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :events
     resources :users
     resources :custom_fields
-
+    post 'events/:event_slug/download', to: 'events#download', as: 'download_event'
     root to: 'events#index'
   end
 

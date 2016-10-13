@@ -6,6 +6,11 @@ class Event < ApplicationRecord
 
   attachment :image
 
+  # Virtual attribute for form_for
+  def event_downloaded_at
+    Time.zone.now.yesterday
+  end
+
   def to_param
     slug
   end
