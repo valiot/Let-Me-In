@@ -1,5 +1,5 @@
-label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() );
-label.setObjectText("Count", '(' + '<%= @user.event_count(current_event) %>' + ')');
+// label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() );
+// label.setObjectText("Count", '(' + '<%= @user.event_count(current_event) %>' + ')');
 
 // Extra fields TODO
 // if ($('#dynamic_field_value_attributes_1_value').val() == "") {
@@ -8,6 +8,9 @@ label.setObjectText("Count", '(' + '<%= @user.event_count(current_event) %>' + '
 //   label.setObjectText("Extra", $('#dynamic_field_value_attributes_1_value').val().toUpperCase());
 // }
 
-label.print(printerName);
+// label.print(printerName);
+$('#myModalBody').html($('#name').val() + " ya fuiste pre-registrado. Pronto recibirás un correo.");
+$('#myModal').modal('show');
 $('.inputs').val("");
 $('#name').focus();
+$('#myModal').modal('show')
