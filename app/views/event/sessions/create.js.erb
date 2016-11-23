@@ -1,9 +1,6 @@
 <% if current_event.pre_register %>
   $('#myModalBody').html($('#name').val() + " ya fuiste pre-registrado. Pronto recibirás un correo.");
   $('#myModal').modal('show');
-  $('.inputs').val("");
-  $('#name').focus();
-  $('#myModal').modal('show')
 <% else %>
   label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() );
   label.setObjectText("Count", '(' + '<%= @user.event_count(current_event) %>' + ')');
@@ -17,3 +14,5 @@
 
   label.print(printerName);
 <% end %>
+$('.inputs').val("");
+$('#name').focus();
