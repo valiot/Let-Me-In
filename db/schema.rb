@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006220302) do
+ActiveRecord::Schema.define(version: 20161123014922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(version: 20161006220302) do
     t.string   "image_filename"
     t.datetime "starts_at"
     t.datetime "finishes_at"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "slug"
     t.text     "label_xml"
+    t.boolean  "pre_register",   default: false
     t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
   end
 
