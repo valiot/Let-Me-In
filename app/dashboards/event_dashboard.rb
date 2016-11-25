@@ -12,6 +12,7 @@ class EventDashboard < Administrate::BaseDashboard
     custom_fields: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    pre_register: Field::Boolean,
     starts_at: Field::DateTime,
     finishes_at: Field::DateTime,
     label_xml: FileField,
@@ -40,6 +41,7 @@ class EventDashboard < Administrate::BaseDashboard
     :name,
     :starts_at,
     :finishes_at,
+    :pre_register,
     :image,
     :created_at,
     :updated_at
@@ -51,6 +53,7 @@ class EventDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :custom_fields,
+    :pre_register,
     :starts_at,
     :finishes_at,
     :label_xml,
