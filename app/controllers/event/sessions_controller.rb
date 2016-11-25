@@ -37,6 +37,8 @@ class Event::SessionsController < ApplicationController
   end
 
   def dynamic_field_params
-    # params.require(:dynamic_field).permit(:event_id, value_attributes: [:value])
+    unless current_event.custom_fields.blank?
+      params.require(:dynamic_field).permit(:event_id, value_attributes: [:value])
+    end
   end
 end
