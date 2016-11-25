@@ -17,10 +17,8 @@ module Admin
     # for more information
 
     def download
-      date = params[:event][:event_downloaded_at].split(' ')[0].split('-').map(&:to_i)
-      date = Date.new(date[0], date[1], date[2])
       event = Event.find(params[:event][:id].to_i)
-      csv = event.print_attendees(date)
+      csv = event.print_attendees
       send_data csv, filename: "#{event.slug}.csv", type: 'text/csv'
     end
 

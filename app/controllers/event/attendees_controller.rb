@@ -6,7 +6,7 @@ class Event::AttendeesController < ApplicationController
     if Attendee.create(user: current_user, event: current_event)
       session[:user_id] = nil
       flash[:notice] = 'Tu check-in ha quedado registrado.'
-      else
+    else
       render event_checkin_path
     end
   end

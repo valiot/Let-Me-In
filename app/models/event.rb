@@ -23,9 +23,9 @@ class Event < ApplicationRecord
     end
   end
 
-  def print_attendees(date)
+  def print_attendees
     csv = ''
-    attendees.where('created_at >= ? AND created_at <= ?', date.beginning_of_day, date.end_of_day).each do |attendee|
+    attendees.where('created_at >= ? AND created_at <= ?', starts_at, finishes_at).each do |attendee|
       next if attendee.user.nil?
       csv << "#{attendee.user.name},#{attendee.user.email},#{dynamic_fields&.where(user: attendee.user).map(&:value)&.join(',')}\n"
     end

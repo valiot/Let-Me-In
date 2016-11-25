@@ -23,7 +23,6 @@ as well as a link to its edit page.
     <h1 class="header__heading"><%= content_for(:title) %></h1>
     <div class="header__actions">
       <div class="download" style=" width: 500px; display: inline-block; text-align: right;position: relative">
-        <%= f.text_field 'event_downloaded_at', class: 'datetimepicker', style: 'display: inline-block; width: 50%; margin: 10px;' %>
         <%= f.button 'Download', class: 'button' %>
       </div>
       <%= link_to(
