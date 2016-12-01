@@ -1,5 +1,5 @@
 <% if current_event.pre_register %>
-  $('#myModalBody').html($('#name').val() + " ya fuiste pre-registrado. Pronto recibirás un correo.");
+  $('#myModalBody').html($('#name').val() + " ya fuiste registrado.");
   $('#myModal').modal('show');
 <% else %>
   label.setObjectText("Name", $('#name').val().split(/^(\S* )/g).filter(Boolean)[0].trim() );
