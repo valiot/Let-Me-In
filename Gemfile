@@ -1,22 +1,25 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.3.3'
+
+gem 'administrate'
+gem 'administrate-field-enum'
+gem 'administrate-field-refile'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
-gem 'administrate', github: 'DisruptiveAngels/administrate', branch: 'merge-master-rails5'
-gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
+gem 'bourbon'
+
+gem 'pusher'
 gem 'refile', require: 'refile/rails', github: 'refile/refile', branch: 'master'
 gem 'refile-mini_magick'
 gem 'refile-s3'
-gem 'bourbon'
-gem 'administrate-field-refile'
-gem 'administrate-field-enum'
+gem 'sinatra', github: 'sinatra/sinatra', branch: 'master'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.2'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0.rc1'
+gem 'rails', '5.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
