@@ -2,8 +2,8 @@
   <%= hidden_field_tag 'dynamic_field[event_id]', @event.id %>
   <% @event.custom_fields.uniq.each_with_index do |field, index| %>
     <div class="form-group row">
-      <%= label_tag field.name.to_sym, field.name.titleize, class: 'col-xs-2 form-control-label', for: 'dynamic_field_value' %>
-      <div class="col-xs-9 offset-xs-1">
+      <%= label_tag field.name.to_sym, field.name.titleize, class: 'col-sm-2 form-control-label', for: 'dynamic_field_value' %>
+      <div class="col-sm-9 offset-sm-1">
         <% if field.type == 'select_field' %>
           <%= select_tag "dynamic_field[value_attributes][#{field.id}][value]", options_for_select(field.options.titleize.split(',')), class: 'form-control' %>
         <% else %>

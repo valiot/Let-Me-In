@@ -7,13 +7,13 @@
     <h6 class="card-subtitle text-muted"><%= current_event.starts_at.strftime("%d de %b del %Y @ %H:%M PM") %></h6>
   </div>
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-sm-12">
       <%= attachment_image_tag(current_event, :image, class:"card-img-top img-fluid") %>
     </div>
   </div>
   <div class="card-block">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-sm-12">
         <%= button_to 'Ya estoy aquí!', event_post_checkin_path, id: 'print_button', remote: true, method: :post, class:"btn btn-success btn-block btn-login" %>
       </div>
     </div>
