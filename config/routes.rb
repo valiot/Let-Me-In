@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     root to: 'events#index'
   end
 
+  # printing stuff
+  resources :events, only: :show, format: :js
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'privacy-policy', to: 'pages#privacy'
   get 'logout', to: 'sessions#destroy', as: 'logout'
@@ -17,6 +20,8 @@ Rails.application.routes.draw do
   resources :identities
 
   scope path: ':event', module: 'event', as: 'event' do
+    # printing stuff
+    get 'print', to: 'printers#print'
     # root to: 'sessions#new', as: 'login'
     # get 'login' => 'sessions#new'
     # post 'login' => 'sessions#create'

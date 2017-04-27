@@ -3,14 +3,14 @@ class Event::SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     @user = User.create(user_params) if @user.nil?
     @attendee = Attendee.new(user: @user, event: current_event)
-    # TODO Fix this hack
     unless dynamic_field_params.blank?
       dynamic_field_params['value_attributes'].each do |k, v|
-        @dynamic_field = DynamicField.create(event_id: dynamic_field_params[:event_id], custom_field_id: k,
+        @dynamic_field = DynamicField.create(event: current_event, custom_field_id: k,
                                              value: v['value'], user_id: @user.id)
       end
     end
     if @attendee.save
+      Pusher.trigger('printer-channel', 'printer', user: @user, dynamic_fields: @user.dynamic_fields.select(:custom_field_id, :value))
       respond_to do |format|
         format.js
       end

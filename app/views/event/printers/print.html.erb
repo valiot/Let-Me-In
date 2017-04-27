@@ -1,0 +1,35 @@
+<script type="text/javascript">
+
+  // Pusher setup
+  var pusher = new Pusher('539a5f2700194b31fcf1', {
+    encrypted: true
+  });
+  var channel = pusher.subscribe('printer-channel');
+  var labelXml = "<%= raw j(current_event.label_xml) %>";
+  // Get printer
+  var printers = dymo.label.framework.getPrinters();
+  if (printers.length === 0)
+      console.warn("No DYMO printers are installed. Install DYMO printers.");
+  var printerName = "";
+  for (var i = 0; i < printers.length; ++i){
+    var printer = printers[i];
+    if (printer.printerType == "LabelWriterPrinter"){
+      printerName = printer.name;
+      break;
+    }
+  }
+
+  // what to do when printer message received
+  channel.bind('printer', function(data) {
+    console.log(data);
+
+    var label = dymo.label.framework.openLabelXml(labelXml);
+    var dynamic_fields = data.dynamic_fields;
+    label.setObjectText("Name", data.user.name.split(' ')[0]);
+    // label.setObjectText("Count", '(' + '<%#= @user.event_count(current_event) %>' + ')');
+    // Extra fields TODO Get label name from dynamic field
+    label.setObjectText(1, dynamic_fields[dynamic_fields.map(function(e) { return e.custom_field_id; }).indexOf(1)].value.toUpperCase());
+    label.setObjectText(2, dynamic_fields[dynamic_fields.map(function(e) { return e.custom_field_id; }).indexOf(2)].value.toUpperCase());
+    label.print(printerName);
+  });
+</script>

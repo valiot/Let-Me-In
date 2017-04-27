@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def event_count
+    render json: Event.find(params[:id].to_i)
+  end
+
   def edit
     @user = current_user
     @event = Event.find(params[:event])
