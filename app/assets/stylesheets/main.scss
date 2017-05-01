@@ -10,6 +10,10 @@ $disruptive-blue: #469cb6;
   margin-top: 20px;
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+    opacity: .5 !important;
+}
+
 .card-form {
   box-shadow: 0 0 0 5px $shadow1, 0 4px 20px $shadow2;
   margin: 25px auto;
