@@ -10,6 +10,7 @@ class Event::SessionsController < ApplicationController
       end
     end
     if @attendee.save
+      flash.now[:notice] = 'Tu check-in ha quedado registrado.'
       Pusher.trigger('printer-channel', 'printer', user: @user, dynamic_fields: @user.dynamic_fields.select(:custom_field_id, :value))
       respond_to do |format|
         format.js
