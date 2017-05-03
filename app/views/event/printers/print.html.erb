@@ -28,8 +28,8 @@
     label.setObjectText("Name", data.user.name.split(' ')[0]);
     label.setObjectText("Count", '(' + data.event_count + ')');
     // Extra fields TODO Get label name from dynamic field
-    label.setObjectText(1, dynamic_fields[dynamic_fields.map(function(e) { return e.custom_field_id; }).indexOf(1)].value.toUpperCase());
-    label.setObjectText(2, dynamic_fields[dynamic_fields.map(function(e) { return e.custom_field_id; }).indexOf(2)].value.toUpperCase());
+    // label.setObjectText(1, dynamic_fields[dynamic_fields.map(function(e) { return e.custom_field_id; }).indexOf(1)].value.toUpperCase());
+    // label.setObjectText(2, dynamic_fields[dynamic_fields.map(function(e) { return e.custom_field_id; }).indexOf(2)].value.toUpperCase());
     label.print(printerName);
   });
 </script>
