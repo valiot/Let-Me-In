@@ -19,13 +19,17 @@
     }
   }
 
+  String.prototype.capitalize = function() {
+      return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+  };
+
   // what to do when printer message received
   channel.bind('printer', function(data) {
     console.log(data);
 
     var label = dymo.label.framework.openLabelXml(labelXml);
     var dynamic_fields = data.dynamic_fields;
-    label.setObjectText("Name", data.user.name.split(' ')[0]);
+    label.setObjectText("Name", data.user.name.split(' ')[0].capitalize());
     label.setObjectText("Count", '(' + data.event_count + ')');
     // Extra fields TODO Get label name from dynamic field
     label.setObjectText(1, dynamic_fields[dynamic_fields.map(function(e) { return e.custom_field_id; }).indexOf(1)].value.toUpperCase());
