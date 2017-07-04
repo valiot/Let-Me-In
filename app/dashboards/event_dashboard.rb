@@ -10,6 +10,7 @@ class EventDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     attendees: Field::HasMany,
     custom_fields: Field::HasMany,
+    last_attendees: Field::Number,
     id: Field::Number,
     name: Field::String,
     pre_register: Field::Boolean,
@@ -29,7 +30,7 @@ class EventDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :name,
     :attendees,
-    :id
+    :last_attendees
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

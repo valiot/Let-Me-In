@@ -11,6 +11,10 @@ class Event < ApplicationRecord
     Time.zone.now.yesterday
   end
 
+  def last_attendees
+    attendees.where('created_at >= ? AND created_at <= ?', starts_at, finishes_at).count
+  end
+
   def to_param
     slug
   end
