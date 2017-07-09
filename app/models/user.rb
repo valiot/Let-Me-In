@@ -13,7 +13,7 @@ class User < ApplicationRecord
   enum role: [:user, :admin]
 
   def update_fields
-    self.name = self.name.split(' ').map{|word| word.capitalize}.join(' ')
+    self.name.split!(' ').map!{|word| word.capitalize}.join(' ')
     self.email.downcase!
   end
 
