@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   has_many :attendees
   has_many :dynamic_fields
   has_many :custom_fields, through: :dynamic_fields
-
+  validates :image, presence: true
   attachment :image
 
   # Virtual attribute for form_for
