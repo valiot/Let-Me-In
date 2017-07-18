@@ -13,7 +13,7 @@ class User < ApplicationRecord
   enum role: [:user, :admin]
 
   def update_fields
-    self.name.titleize
+    self.name = self.name.titleize
     self.email.downcase!
   end
 
