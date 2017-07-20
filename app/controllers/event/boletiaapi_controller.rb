@@ -4,7 +4,8 @@ class Event::BoletiaapiController < ApplicationController
     require 'uri'
     require 'net/http'
     id = params[:id]
-    url = URI("https://boletiaapi.com/api/v1/search/events/123249/tickets?number="+id)
+    event = params[:event_id]
+    url = URI("https://boletiaapi.com/api/v1/search/events/"+event+"/tickets?number="+id)
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true

@@ -45,21 +45,25 @@
 </div>
 <script type="text/javascript">
   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  if(<%= current_event.boletia_id %> != null){
+      var eventid = <%= current_event.boletia_id %>
+      scanner.addListener('scan', function (id) {
 
-  scanner.addListener('scan', function (id) {
-      $.ajax({
-        url: "<%= event_send_request_path%>",
-        type: "GET",
-        data: {id: id},
-        success: function(data, textStatus, xhr) {
-          var json = JSON.parse(data.file_content);
+        $.ajax({
+          url: "<%= event_send_request_path%>",
+          type: "GET",
+          data: {id: id, event_id: eventid},
+          success: function(data, textStatus, xhr) {
+              var json = JSON.parse(data.file_content);
               json = json.tickets[0]
-            $("#name").val(json.first_name + " "+ json.last_name);
-            $("#email").val(json.email);
-          },
-     });
+              $("#name").val(json.first_name + " "+ json.last_name);
+              $("#email").val(json.email);
+            },
+          });
 
-});
+    });
+  }
+
 
   Instascan.Camera.getCameras().then(function (cameras) {
     if (cameras.length > 0) {

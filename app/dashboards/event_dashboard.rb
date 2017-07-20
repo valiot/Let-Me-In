@@ -13,6 +13,7 @@ class EventDashboard < Administrate::BaseDashboard
     last_attendees: Field::Number,
     id: Field::Number,
     name: Field::String,
+    boletia_id: Field::Number,
     pre_register: Field::Boolean,
     starts_at: Field::DateTime,
     finishes_at: Field::DateTime,
@@ -58,7 +59,8 @@ class EventDashboard < Administrate::BaseDashboard
     :starts_at,
     :finishes_at,
     :label_xml,
-    :image
+    :image,
+    :boletia_id
   ].freeze
 
   # Overwrite this method to customize how events are displayed
