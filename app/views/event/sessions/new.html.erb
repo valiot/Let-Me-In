@@ -21,6 +21,7 @@
         <div class="actions"><%= submit_tag "Registrar", id: 'print_button', class:"btn btn-success btn-block" %></div>
       </div>
     </div>
+      <!-- <video id="preview" width=350></video> -->
   <% end %>
 </div>
 
@@ -42,3 +43,30 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+
+  scanner.addListener('scan', function (id) {
+      $.ajax({
+        url: "<%= event_send_request_path%>",
+        type: "GET",
+        data: {id: id},
+        success: function(data, textStatus, xhr) {
+          var json = JSON.parse(data.file_content);
+              json = json.tickets[0]
+            $("#name").val(json.first_name + " "+ json.last_name);
+            $("#email").val(json.email);
+          },
+     });
+
+});
+
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      scanner.start(cameras[0]);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+  });
+</script>
