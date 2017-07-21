@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   scope path: ':event', module: 'event', as: 'event' do
     # printing stuff
     get 'print', to: 'printers#print'
-    get 'send_request', to: 'boletiaapi#send_request', as: 'send_request'
+    get 'send_request', to: 'boletiaApi#send_request', as: 'send_request'
     # root to: 'sessions#new', as: 'login'
     # get 'login' => 'sessions#new'
     # post 'login' => 'sessions#create'

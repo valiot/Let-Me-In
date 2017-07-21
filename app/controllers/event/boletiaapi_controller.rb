@@ -1,23 +1,12 @@
-class Event::BoletiaapiController < ApplicationController
+class Event::BoletiaApiController < ApplicationController
 
   def send_request
-    require 'uri'
-    require 'net/http'
-    id = params[:id]
-    event = params[:event_id]
-    url = URI("https://boletiaapi.com/api/v1/search/events/"+event+"/tickets?number="+id)
-
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-    request = Net::HTTP::Get.new(url)
-    request["authorization"] = 'Bearer a52a81ff-837d-4f25-8d82-1aefee825103'
-    request["cache-control"] = 'no-cache'
-
-    @response = http.request(request)
-    render :json => {
-            :file_content => @response.read_body
-        }
+    @response =  RestClient::Request.execute(
+    method: :get,
+    url: "https://boletiaapi.com/api/v1/search/events/#{params[:event_id]}/tickets?number=#{params[:id]}",
+    headers: {'authorization' => "Bearer a52a81ff-837d-4f25-8d82-1aefee825103"},
+    verify_ssl: OpenSSL::SSL::VERIFY_NONE,
+    )
+    render json: { file_content: @response }
   end
 end
