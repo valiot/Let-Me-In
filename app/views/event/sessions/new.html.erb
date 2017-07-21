@@ -45,20 +45,20 @@
 </div>
 <script>
   <%  unless current_event.boletia_id.nil? %>
-  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      var boletiaid = <%= current_event.boletia_id %>
-      scanner.addListener('scan', function (id) {
+    let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+    var boletiaid = <%= current_event.boletia_id %>
+    scanner.addListener('scan', function (id) {
 
-        $.ajax({
-          url: "<%= event_send_request_path %>",
-          type: "GET",
-          data: {id: id, boletia_id: boletiaid},
-          success: function(data, textStatus, xhr) {
-              json = data.tickets[0]
-              $("#name").val(json.first_name + " "+ json.last_name);
-              $("#email").val(json.email);
-            },
-          });
+      $.ajax({
+        url: "<%= event_send_request_path %>",
+        type: "GET",
+        data: {id: id, boletia_id: boletiaid},
+        success: function(data, textStatus, xhr) {
+          json = data.tickets[0]
+          $("#name").val(json.first_name + " "+ json.last_name);
+          $("#email").val(json.email);
+          },
+        });
 
     });
     Instascan.Camera.getCameras().then(function (cameras) {
@@ -69,5 +69,5 @@
       }
     }).catch(function (e) {
     });
-      <% end %>
+    <% end %>
 </script>
