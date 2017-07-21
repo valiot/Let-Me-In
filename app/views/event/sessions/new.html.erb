@@ -46,16 +46,15 @@
 <script>
   <%  unless current_event.boletia_id.nil? %>
   let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      var eventid = <%= current_event.boletia_id %>
+      var boletiaid = <%= current_event.boletia_id %>
       scanner.addListener('scan', function (id) {
 
         $.ajax({
-          url: "<%= event_send_request_path%>",
+          url: "<%= event_send_request_path %>",
           type: "GET",
-          data: {id: id, event_id: eventid},
+          data: {id: id, boletia_id: boletiaid},
           success: function(data, textStatus, xhr) {
-              var json = JSON.parse(data.file_content);
-              json = json.tickets[0]
+              json = data.tickets[0]
               $("#name").val(json.first_name + " "+ json.last_name);
               $("#email").val(json.email);
             },
